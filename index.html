@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    link rel="icon" type="image/png" href="./assets/img/Gemini_Generated_Image_x8kjjkx8kjjkx8kj-removebg-preview.png">
     <title>SONAR</title>
 </head>
+
 <body>
     <header>
-        <span>Março, 22, 2026</span>
-        <h1>Sonar</h1>
+        <div>
+            <span>Março, 22, 2026</span>
+            <h1>Sonar</h1>
+            <p>Organize suas tarefas e ganhe moedas !</p>
+        </div>
+        <div>
+            <div>
+                <span>Saldo:</span>
+                <span id="saldo">0</span>
+            </div>
+        </div>
     </header>
     <hr>
     <main>
+        <form action="">
+            <div class="adiciona_tarefa">
+                <input type="text" id="tituloTarefa" placeholder="Adicionar nova tarefa...">
+                <button type="button" id="botaoAdicionarTarefa" onclick="criarTarefa()">+ Nova</button>
+            </div>
+        </form>
+
         <div id="lista"></div>
-        <span>Não há tarefas disponíveis.</span>
     </main>
-    <button id="botaoAdicionarTarefa" onclick="botaoAdicionarTarefa()">+</button>
     <script src="./assets/js/main.js"></script>
 </body>
+
 </html>
