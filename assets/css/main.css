@@ -65,7 +65,7 @@ main {
     color: #404040;
 }
 
-#lista li span {
+#lista li label {
     text-align: start;
     z-index: 0;
     width: 90%;
@@ -171,7 +171,6 @@ form {
     display: flex;
     justify-content: start;
     align-items: center;
-    background-color: ;
     margin-top: 30px;
     padding: 20px 0;
     width: 100%;
