@@ -77,7 +77,6 @@ function renderizarTarefas() {
 
         const checarTarefa = document.createElement('input');
         checarTarefa.type = 'checkbox';
-        checarTarefa.id = `checarTarefa`;
         li.appendChild(checarTarefa)
         checarTarefa.addEventListener('change', () => {
             if (checarTarefa.checked) {
@@ -90,10 +89,10 @@ function renderizarTarefas() {
             }
         });
 
-        const label = document.createElement('label');
-        label.textContent = tarefa.tituloTarefa;
-        label.htmlFor = `checarTarefa`;
-        li.appendChild(label);
+        const span = document.createElement('span');
+        span.textContent = tarefa.tituloTarefa;
+        // label.htmlFor = `checarTarefa`;
+        li.appendChild(span);
 
         const containerValorTarefa = document.createElement('div');
         containerValorTarefa.classList.add('containerValorTarefa');
@@ -188,5 +187,5 @@ function tocarMusica() {
 function saldoPendente() {
     const saldoPendenteElement = document.getElementById('saldoPendente');
     const saldoPendente = parseFloat(saldoPendenteElement.textContent) || 0;
-    saldoPendenteElement.textContent = String(`+ ${tarefas.length * 10}`);
+    saldoPendenteElement.textContent = String(`+ ${tarefas.length * 10}`).concat(" moedas");
 }
