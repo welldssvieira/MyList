@@ -2,6 +2,7 @@ window.onload = function () {
     renderizarTarefas();
     atualizarData();
     saudacaoUsuario();
+    saldoPendente();
 };
 
 let tarefas = [];
@@ -47,6 +48,7 @@ function criarTarefa() {
 
     salvarLocalStorage(tarefas)
     renderizarTarefas();
+    saldoPendente();
     inputTitulo.value = "";
 };
 
@@ -75,6 +77,7 @@ function renderizarTarefas() {
 
         const checarTarefa = document.createElement('input');
         checarTarefa.type = 'checkbox';
+        checarTarefa.id = `checarTarefa`;
         li.appendChild(checarTarefa)
         checarTarefa.addEventListener('change', () => {
             if (checarTarefa.checked) {
@@ -82,12 +85,15 @@ function renderizarTarefas() {
                 salvarLocalStorage(tarefas);
                 incrementarSaldo();
                 renderizarTarefas();
+                tocarMusica()
+                saldoPendente()
             }
         });
 
-        const span = document.createElement('span');
-        span.textContent = tarefa.tituloTarefa;
-        li.appendChild(span);
+        const label = document.createElement('label');
+        label.textContent = tarefa.tituloTarefa;
+        label.htmlFor = `checarTarefa`;
+        li.appendChild(label);
 
         const containerValorTarefa = document.createElement('div');
         containerValorTarefa.classList.add('containerValorTarefa');
@@ -110,14 +116,6 @@ function renderizarTarefas() {
 function deletarTarefa(id) {
     tarefas = tarefas.filter(tarefa => tarefa.id !== id);
 }
-
-// NOTE: Feacture futura.
-/* function atualizarTarefa(id, titulo) {
-    const tarefa = tarefas.find(tarefa => tarefa.id == id);
-    if (tarefa) {
-        tarefa.titulo = titulo;
-    }
-}; */
 
 function atualizarData() {
     const data = new Date();
@@ -178,4 +176,17 @@ function incrementarSaldo() {
     saldo += 10;
     salvarSaldoLocalStorage(saldo);
 
+}
+
+function tocarMusica() {
+    const elemementoAudio = document.createElement('audio');
+    elemementoAudio.src = 'assets/audio/virtual_vibes-pop-tap-click-fx-383733.mp3';
+
+    elemementoAudio.play();
+}
+
+function saldoPendente() {
+    const saldoPendenteElement = document.getElementById('saldoPendente');
+    const saldoPendente = parseFloat(saldoPendenteElement.textContent) || 0;
+    saldoPendenteElement.textContent = String(`+ ${tarefas.length * 10}`);
 }

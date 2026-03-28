@@ -42,13 +42,6 @@ main {
     margin-top: 40px;
 }
 
-/* main span {
-    width: 100%;
-    text-align: center;
-    z-index: 0;
-    width: 50%;
-    display: ;
-} */
 #lista {
     display: flex;
     flex-direction: column;
@@ -157,27 +150,56 @@ form {
     margin: 20px 0;
 }
 
-#containerSaldo div {
+#containerSaldo {
     display: flex;
     justify-content: center;
     align-items: start;
     flex-direction: column;
     gap: 10px;
     color: white;
+    width: 100%;
 }
 
-#containerSaldo div :first-child {
-    font-size: 15px;
-    font-weight: normal;
+#saldoAtual {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
 }
 
-#containerSaldo div :last-child {
+#containerSaldoPendente {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: ;
+    margin-top: 30px;
+    padding: 20px 0;
+    width: 100%;
+    border-top: 1px solid #e2e2e2;
+    gap: 10px;
+}
+
+#containerSaldoPendente :first-child {
+    color: #404040;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#saldoPendente {
+    color: rgb(255, 233, 106);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#saldoAtual :first-child {
+    color: #404040;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#saldoAtual :last-child {
     font-size: 30px;
     font-weight: bold;
-}
-
-#containerSaldo div span {
-    color: #404040;
 }
 
 #saldo {
