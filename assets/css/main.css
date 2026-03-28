@@ -17,8 +17,9 @@ header {
 
 header h1 {
     color: #101828;
-    font-size: 32px;
+    font-size: 28px;
     margin-top: 5px;
+    text-wrap: wrap;
 }
 
 header p {
@@ -62,7 +63,7 @@ main {
     align-items: center;
     position: relative;
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     text-decoration: none;
     list-style: none;
     background-color: #ffffff;
@@ -74,7 +75,11 @@ main {
 #lista li span {
     text-align: start;
     z-index: 0;
-    width: 70%;
+    width: 90%;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #lista button {
@@ -96,6 +101,7 @@ main {
     width: 5%;
     transform: scale(1.5);
     cursor: pointer;
+    margin-right: 15px;
 }
 
 
@@ -135,8 +141,6 @@ form {
     cursor: pointer;
     font-size: 15px;
     position: relative;
-    /* right: 30px;
-    float: right; */
     z-index: 2;
 }
 
@@ -147,7 +151,7 @@ form {
     flex-direction: column;
     width: 100%;
     width: 100%;
-    padding: 20px 40px;
+    padding: 20px;
     border-radius: 10px;
     outline: #e2e2e2 solid 1px;
     margin: 20px 0;
@@ -168,7 +172,7 @@ form {
 }
 
 #containerSaldo div :last-child {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
 }
 
