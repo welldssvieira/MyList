@@ -1,6 +1,7 @@
 window.onload = function () {
     renderizarTarefas();
     atualizarData();
+    saudacaoUsuario();
 };
 
 let tarefas = [];
@@ -54,7 +55,7 @@ function salvarLocalStorage(tarefas) {
 }
 
 function salvarSaldoLocalStorage(saldo) {
-    localStorage.setItem("saldo", saldo.toString());
+    localStorage.setItem("saldo", saldo.toString().concat(" moedas"));
 }
 
 function renderizarTarefas() {
@@ -63,7 +64,9 @@ function renderizarTarefas() {
 
     tarefas = obterTarefasLocalStorage();
     saldo = parseFloat(localStorage.getItem("saldo")) || 0;
-    document.getElementById('saldo').textContent = saldo.toFixed(2);
+    document.getElementById('saldo').textContent = saldo.toFixed(2).concat(" moedas");
+
+
 
     tarefas.forEach(tarefa => {
 
@@ -86,6 +89,20 @@ function renderizarTarefas() {
         span.textContent = tarefa.tituloTarefa;
         li.appendChild(span);
 
+        const containerValorTarefa = document.createElement('div');
+        containerValorTarefa.classList.add('containerValorTarefa');
+        li.appendChild(containerValorTarefa);
+
+        const iconMoeda = document.createElement('img');
+        iconMoeda.classList.add('iconMoeda');
+        iconMoeda.src = 'assets/img/coin.png';
+        iconMoeda.alt = 'Moeda';
+        containerValorTarefa.appendChild(iconMoeda);
+
+        const valorTarefa = document.createElement('span');
+        valorTarefa.classList.add('valorTarefa');
+        valorTarefa.textContent = '+10';
+        containerValorTarefa.appendChild(valorTarefa);
     })
 
 }
@@ -112,6 +129,47 @@ function atualizarData() {
     const mesNome = meses[data.getMonth()];
     const dataFormatada = `${mesNome}, ${dia}, ${ano}`;
     document.querySelector('header span').textContent = dataFormatada;
+
+
+
+
+
+
+
+
+}
+
+function saudacaoUsuario() {
+    const data = new Date();
+    const hora = data.getHours();
+    const saudacaoElement = document.getElementById('saudacaoUsuario');
+
+    const saudacoes = ["Olá !", "Que bom te ver !", "Voltou rápido :)"];
+    const valorAleatorio = Math.floor(Math.random() * 2);
+
+    saudacaoAleatoria = saudacoes[Math.floor(Math.random() * saudacoes.length)];
+    saudacaoElement.querySelector('h1').textContent = saudacaoAleatoria;
+
+    if (hora >= 5 && hora < 12) {
+        if (valorAleatorio === 0) {
+            saudacaoElement.querySelector('h1').textContent = 'Hey ! Bom dia!';
+        } else {
+            saudacaoElement.querySelector('h1').textContent = saudacoes[Math.floor(Math.random() * saudacoes.length)];
+        }
+    } else if (hora >= 12 && hora < 18) {
+        if (valorAleatorio === 0) {
+            saudacaoElement.querySelector('h1').textContent = 'Hey ! Boa tarde!';
+        } else {
+            saudacaoElement.querySelector('h1').textContent = saudacoes[Math.floor(Math.random() * saudacoes.length)];
+        }
+    } else {
+        if (valorAleatorio === 0) {
+            saudacaoElement.querySelector('h1').textContent = 'Hey ! Boa noite!';
+        } else {
+            saudacaoElement.querySelector('h1').textContent = saudacoes[Math.floor(Math.random() * saudacoes.length)];
+        }
+    }
+
 }
 
 function incrementarSaldo() {

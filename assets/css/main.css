@@ -15,11 +15,6 @@ header {
     padding: 20px 20px;
 }
 
-header span {
-    color: #404040;
-    font-size: 14px;
-}
-
 header h1 {
     color: #101828;
     font-size: 32px;
@@ -79,7 +74,7 @@ main {
 #lista li span {
     text-align: start;
     z-index: 0;
-    width: 80%;
+    width: 70%;
 }
 
 #lista button {
@@ -143,4 +138,82 @@ form {
     /* right: 30px;
     float: right; */
     z-index: 2;
+}
+
+#containerSaldo {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    width: 100%;
+    padding: 20px 40px;
+    border-radius: 10px;
+    outline: #e2e2e2 solid 1px;
+    margin: 20px 0;
+}
+
+#containerSaldo div {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+
+#containerSaldo div :first-child {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+#containerSaldo div :last-child {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#containerSaldo div span {
+    color: #404040;
+}
+
+#saldo {
+    color: #101828;
+}
+
+.containerValorTarefa {
+    background-color: #f5f5f5;
+    width: 70px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconMoeda {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.valorTarefa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #404040;
+    font-size: 14px;
+}
+
+.img_mao {
+    width: 80px;
+}
+
+#saudacaoUsuario {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 20px 0;
 }
